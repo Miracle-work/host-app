@@ -9,6 +9,7 @@ import { AiTwotoneBank } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 // End Of Bootstrap Components
 import classes from './NavBar.module.scss';
@@ -41,7 +42,7 @@ const NavBar = () => {
                 <Navbar href="" className={`justify-content-start ${classes.navbar_link}`}>Logo</Navbar>
 
                 <Navbar.Toggle className={`${classes.navbar_toggle}`}>
-                     <FaUserCircle className={`${classes.navbar_toggle_icon} `} />
+                     <GiHamburgerMenu className={`${classes.navbar_toggle_icon} `} />
                 </Navbar.Toggle>
 
                 <Navbar.Collapse className={`justify-content-start ${classes.navbar_link}`}>
