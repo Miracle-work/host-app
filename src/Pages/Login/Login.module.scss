@@ -1,0 +1,60 @@
+// .container{
+//     width: 100vw;
+//     height: 100vh;
+//     background: rgb(5,14,23);
+//     background: radial-gradient(circle at center,#0b3894 0,#101e6c,#0D1A68 140%);
+// }
+
+.logo{
+    text-align: center;
+    margin-bottom: 30px;
+    // color: #eee;
+    margin-top: 80px;
+}
+
+.container .card{
+    width: 50%;
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+    background-color: rgb(244, 247, 249);
+    padding: 10px;
+}
+
+.card .form_title{
+    font-size: .8rem;
+    padding-top: 20px;
+}
+
+.col_wrapper {
+    position:relative;
+    padding: 0 15px;
+    margin: 15px 0;
+
+}
+
+.col_wrapper .icon {
+    height: 1.8rem;
+    width: 1.8rem;
+    color: gray;
+    padding: 4px;
+    position: absolute;
+    box-sizing:border-box;
+    top:50%;
+    left:35px;
+    transform: translateY(-50%);
+}
+
+.col_wrapper .input_field{
+    direction: rtl;
+    border: 1px solid rgb(105, 104, 104);
+}
+
+.col_wrapper .submit_btn{
+    background: rgb(5,14,23);
+    background: radial-gradient(circle at center,#0b3894 0,#101e6c,#0D1A68 140%);
+    color:#eee;
+    padding: 5px 90px;
+}
+  
+  
