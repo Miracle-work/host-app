@@ -1,4 +1,5 @@
 import {React,useContext,useRef, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import { FaEnvelope } from "react-icons/fa";
 import { HiLockClosed } from "react-icons/hi";
 import classes from './Login.module.scss';
@@ -9,6 +10,7 @@ const Form = () => {
     const passwordInputRef=useRef();
     const [isLoading, setIsLoading]=useState(false);
     const authContext= useContext(AuthContext)
+    const navigate=useNavigate()
     const submitHandler=(event)=>{
         event.preventDefault();
         const enteredUserName=usernameInputRef.current.value;
@@ -39,6 +41,7 @@ const Form = () => {
             }
         }).then((data)=>{
             authContext.login(data.idToken)
+            navigate('/dashboard')
         })
     }
     return (
@@ -61,7 +64,10 @@ const Form = () => {
                 </div>
 
                 <div className='col-md-6'>
-                    <input className={`${classes.submit_btn}`} type="submit" value='الدخول'/>
+                    {!isLoading ? 
+                        <input className={`${classes.submit_btn}`} type="submit" value='الدخول'/> :
+                        <input className={`${classes.submit_btn}`} type="submit" disabled  value='Loading ....'/>
+                    }
                 </div>
             </div>
         </form>

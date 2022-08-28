@@ -10,31 +10,23 @@ import AuthContext from './Store/Auth-Context'
 
 // End of Bootstrap Style
 function App() {
-  // const [isLoggedIn, setisLoggedIn] = useState(false);
   const authContext=useContext(AuthContext)
   const isLoggedIn=authContext.isLoggedIn
-  // const logIn = () => {
-  // setisLoggedIn(true);
-  // };
- 
-  // const logOut = () => {
-  // setisLoggedIn(false);
-  // };
-
+  console.log(isLoggedIn)
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />}/>
       <Route path='*' element={<NotFound />} />
-     
+      
       { isLoggedIn ?
         <Route path="/dashboard" element={<Home />} /> :
         <Route path="/dashboard" element={<Navigate to="/login" replace />} />
       }
 
-      { !isLoggedIn ?
-        <Route path="/login" element={<Login />} /> :
-        <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+      { isLoggedIn ?
+        <Route path="/login" element={<Navigate to="/dashboard" replace />}/>:
+        <Route path="/login" element={<Login/> }/>
       }
 
     </Routes>
