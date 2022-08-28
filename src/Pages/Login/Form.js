@@ -1,21 +1,57 @@
-import React from 'react';
+import {React,useRef, useState} from 'react';
 import { FaEnvelope } from "react-icons/fa";
 import { HiLockClosed } from "react-icons/hi";
 import classes from './Login.module.scss';
 
 const Form = () => {
+    const usernameInputRef=useRef();
+    const passwordInputRef=useRef();
+    const [isLoading, setIsLoading]=useState(false);
+
+    const submitHandler=(event)=>{
+        event.preventDefault();
+        const enteredUserName=usernameInputRef.current.value;
+        const enteredPassword=passwordInputRef.current.value;
+        setIsLoading(true)
+        fetch(
+            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB2sZ3Va0wwkASPjq4nB_0xS5L-yIiLnOs',
+            {
+                method:'POST',
+                body:JSON.stringify({
+                    email:enteredUserName,
+                    password:enteredPassword,
+                    returnSecureToken:true
+                }),
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+            }
+        ).then((res)=>{
+            setIsLoading(false)
+            if(res.ok){
+                return res.json()
+            }else{
+                return res.json().then((data)=>{
+                    let errorMessage='Authantication Failed'
+                    alert(errorMessage)
+                })
+            }
+        }).then((data)=>{
+            console.log(data)
+        })
+    }
     return (
-        <form method='Post' action=''>
+        <form onSubmit={submitHandler}>
             <div className={`row ${classes.col_wrapper}`}>
                 <div className='col-md-12'>
                 <FaEnvelope className={classes.icon}/>
-                <input className={`form-control ${classes.input_field}`} type="text" placeholder='اسم المستخدم'/>
+                <input className={`form-control ${classes.input_field}`} ref={usernameInputRef} type="text" placeholder='اسم المستخدم'/>
                 </div>
             </div>
             <div className={`row ${classes.col_wrapper}`}>
                 <div className='col-md-12'>
                 <HiLockClosed className={classes.icon}/>
-                <input className={`form-control ${classes.input_field}`} type="password" placeholder='كلمة المرور'/>
+                <input className={`form-control ${classes.input_field}`} ref={passwordInputRef} type="password" placeholder='كلمة المرور'/>
                 </div>
             </div>
             <div className={`row ${classes.col_wrapper}`}>
