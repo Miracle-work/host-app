@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import Home from "./Pages/Home/Home";
 // Bootstrap Style
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,10 +6,13 @@ import classes from './App.module.scss'
 import { BrowserRouter,Route,Navigate,Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import NotFound from "./Components/Error/404";
+import AuthContext from './Store/Auth-Context'
+
 // End of Bootstrap Style
 function App() {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
- 
+  // const [isLoggedIn, setisLoggedIn] = useState(false);
+  const authContext=useContext(AuthContext)
+  const isLoggedIn=authContext.isLoggedIn
   // const logIn = () => {
   // setisLoggedIn(true);
   // };

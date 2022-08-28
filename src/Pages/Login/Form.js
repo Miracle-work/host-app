@@ -1,13 +1,14 @@
-import {React,useRef, useState} from 'react';
+import {React,useContext,useRef, useState} from 'react';
 import { FaEnvelope } from "react-icons/fa";
 import { HiLockClosed } from "react-icons/hi";
 import classes from './Login.module.scss';
+import AuthContext from '../../Store/Auth-Context'
 
 const Form = () => {
     const usernameInputRef=useRef();
     const passwordInputRef=useRef();
     const [isLoading, setIsLoading]=useState(false);
-
+    const authContext= useContext(AuthContext)
     const submitHandler=(event)=>{
         event.preventDefault();
         const enteredUserName=usernameInputRef.current.value;
@@ -37,7 +38,7 @@ const Form = () => {
                 })
             }
         }).then((data)=>{
-            console.log(data)
+            authContext.login(data.idToken)
         })
     }
     return (
