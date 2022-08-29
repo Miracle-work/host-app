@@ -4,7 +4,7 @@ import Form from './Form';
 const Login = () => {
     return (
         <div className={classes.container}>
-           <div className='container'>
+           <div className={`container ${classes.wrapper}`}>
                 <div className={classes.logo}>
                     Logo
                 </div>
