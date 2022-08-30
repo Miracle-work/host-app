@@ -12,7 +12,7 @@ import AuthContext from './Store/Auth-Context'
 function App() {
   const authContext=useContext(AuthContext)
   const isLoggedIn=authContext.isLoggedIn
-  console.log(isLoggedIn)
+
   return (
     <BrowserRouter>
     <Routes>

@@ -5,12 +5,13 @@ import { HiLockClosed } from "react-icons/hi";
 import classes from './Login.module.scss';
 import AuthContext from '../../Store/Auth-Context'
 
-const Form = () => {
+const Form = (props) => {
     const usernameInputRef=useRef();
     const passwordInputRef=useRef();
     const [isLoading, setIsLoading]=useState(false);
     const authContext= useContext(AuthContext)
     const navigate=useNavigate()
+    const [submitError,setSubmitError]=useState()
     const submitHandler=(event)=>{
         event.preventDefault();
         const enteredUserName=usernameInputRef.current.value;
@@ -36,41 +37,44 @@ const Form = () => {
             }else{
                 return res.json().then((data)=>{
                     let errorMessage='Authantication Failed'
-                    alert(errorMessage)
+                    setSubmitError(props.onError(errorMessage))
                 })
             }
         }).then((data)=>{
-            authContext.login(data.idToken)
+            authContext.login(data.idToken,3600000)
             navigate('/dashboard')
         })
     }
     return (
-        <form onSubmit={submitHandler}>
-            <div className={`row ${classes.col_wrapper}`}>
-                <div className='col-md-12'>
-                <FaEnvelope className={classes.icon}/>
-                <input className={`form-control ${classes.input_field}`} ref={usernameInputRef} type="text" placeholder='اسم المستخدم'/>
+        <>
+            
+            <form onSubmit={submitHandler}>
+                <div className={`row ${classes.col_wrapper}`}>
+                    <div className='col-md-12'>
+                    <FaEnvelope className={classes.icon}/>
+                    <input className={`form-control ${classes.input_field}`} ref={usernameInputRef} type="text" placeholder='اسم المستخدم'/>
+                    </div>
                 </div>
-            </div>
-            <div className={`row ${classes.col_wrapper}`}>
-                <div className='col-md-12'>
-                <HiLockClosed className={classes.icon}/>
-                <input className={`form-control ${classes.input_field}`} ref={passwordInputRef} type="password" placeholder='كلمة المرور'/>
+                <div className={`row ${classes.col_wrapper}`}>
+                    <div className='col-md-12'>
+                    <HiLockClosed className={classes.icon}/>
+                    <input className={`form-control ${classes.input_field}`} ref={passwordInputRef} type="password" placeholder='كلمة المرور'/>
+                    </div>
                 </div>
-            </div>
-            <div className={`row ${classes.col_wrapper}`}>
-                <div className='col-md-6'>
-                    <input className={`form-control`} type="submit"/>
-                </div>
+                <div className={`row ${classes.col_wrapper}`}>
+                    <div className='col-md-6'>
+                        <input className={`form-control`} type="submit"/>
+                    </div>
 
-                <div className='col-md-6'>
-                    {!isLoading ? 
-                        <input className={`${classes.submit_btn}`} type="submit" value='الدخول'/> :
-                        <input className={`${classes.submit_btn}`} type="submit" disabled  value='Loading ....'/>
-                    }
+                    <div className='col-md-6'>
+                        {!isLoading ? 
+                            <input className={`${classes.submit_btn}`} type="submit" value='الدخول'/> :
+                            <input className={`${classes.submit_btn}`} type="submit" disabled  value='Loading ....'/>
+                        }
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </>    
     );
 };
 
