@@ -29,7 +29,6 @@ const NavBar = () => {
    ])
 
     const arrowHandler=(id)=>{
-        console.log(id);
        let element = dropdown.find(c=> c.id == id);
        element.isOpened = !element.isOpened;
        setDropdown([...dropdown]);
@@ -56,8 +55,9 @@ const NavBar = () => {
                                 }
                             </span>
                         } onClick={() =>arrowHandler(1)}>
-                            <NavDropdown.Item href="">1</NavDropdown.Item>
-                            <NavDropdown.Item href="">2</NavDropdown.Item>
+                            <NavDropdown.Item href="/dashboard/manufacturing">
+                                الرئيسية
+                            </NavDropdown.Item>
                         </NavDropdown>
 
                         <NavDropdown className={`${classes.dropdown}`} title={
@@ -71,8 +71,9 @@ const NavBar = () => {
                                 } 
                             </span>
                         } onClick={() => arrowHandler(2)}>
-                            <NavDropdown.Item href="">1</NavDropdown.Item>
-                            <NavDropdown.Item href="">2</NavDropdown.Item>
+                            <NavDropdown.Item href="/dashboard/assets">
+                            الرئيسية   
+                            </NavDropdown.Item>
                         </NavDropdown>
                         
                     </Nav>

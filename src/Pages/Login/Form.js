@@ -4,6 +4,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { HiLockClosed } from "react-icons/hi";
 import classes from './Login.module.scss';
 import AuthContext from '../../Store/Auth-Context'
+import ReactFlagsSelect from "react-flags-select";
 
 const Form = (props) => {
     const usernameInputRef=useRef();
@@ -12,6 +13,8 @@ const Form = (props) => {
     const authContext= useContext(AuthContext)
     const navigate=useNavigate()
     const [submitError,setSubmitError]=useState()
+    const [selected, setSelected] = useState("EG");
+
     const submitHandler=(event)=>{
         event.preventDefault();
         const enteredUserName=usernameInputRef.current.value;
@@ -46,8 +49,7 @@ const Form = (props) => {
         })
     }
     return (
-        <>
-            
+        <>  
             <form onSubmit={submitHandler}>
                 <div className={`row ${classes.col_wrapper}`}>
                     <div className='col-md-12'>
@@ -63,7 +65,13 @@ const Form = (props) => {
                 </div>
                 <div className={`row ${classes.col_wrapper}`}>
                     <div className='col-md-6'>
-                        <input className={`form-control`} type="submit"/>
+                       <ReactFlagsSelect 
+                            selected={selected}
+                            onSelect={(code) => setSelected(code)}
+                            countries={["EG", "US"]}
+                            customLabels={{"US": "EN-US","EG": "عربي"}}
+                       />
+
                     </div>
 
                     <div className='col-md-6'>

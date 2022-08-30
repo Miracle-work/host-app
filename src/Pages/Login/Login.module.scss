@@ -6,13 +6,12 @@
 }
 
 .wrapper{
-  width: 50vw;
+  width: 40vw;
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 .logo{
@@ -22,12 +21,13 @@
 
 .container .card{
     background-color: rgb(244, 247, 249);
-    padding: 10px;
+    padding: 10px 10px 80px 10px;
 }
 
 .card .form_title{
     font-size: .8rem;
     padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .col_wrapper {
@@ -58,7 +58,8 @@
     background: rgb(5,14,23);
     background: radial-gradient(circle at center,#0b3894 0,#101e6c,#0D1A68 140%);
     color:#eee;
-    padding: 5px 90px;
+    padding: 10px 70px;
+    border: none;
 }
   
   

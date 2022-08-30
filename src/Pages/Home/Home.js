@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <NavBar/> 
-            <BreadCrumbList/> 
+            <BreadCrumbList breadCrumbTitle={'تكويد معايير الجودة'}/> 
             <UiCard>
                 <Form />
             </UiCard>     

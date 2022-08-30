@@ -7,16 +7,18 @@ import { BrowserRouter,Route,Navigate,Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import NotFound from "./Components/Error/404";
 import AuthContext from './Store/Auth-Context'
-
+import Manufacturing from './Pages/Home/Manufacturing/Manufacturing'
+import Assets from './Pages/Home/Assets/Assets'
 // End of Bootstrap Style
 function App() {
   const authContext=useContext(AuthContext)
   const isLoggedIn=authContext.isLoggedIn
-
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />}/>
+      <Route path="/dashboard/manufacturing" element={<Manufacturing />}/>
+      <Route path="/dashboard/assets" element={<Assets />}/>
       <Route path='*' element={<NotFound />} />
       
       { isLoggedIn ?

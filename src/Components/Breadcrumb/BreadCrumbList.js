@@ -5,16 +5,16 @@ import { Container } from 'react-bootstrap';
 
 import classes from './BreadCrumbList.module.scss';
 
-const BreadCrumbList = () => {
+const BreadCrumbList = (props) => {
     return (
         <Container>
             <nav>
                 <ol className={`breadcrumb ${classes.breadcrumb_wrapper}`}>
                     <li className={`breadcrumb-item ${classes.breadcrumb_list_item}`} aria-current="page">
-                        تكويد معايير الجودة
+                        {props.breadCrumbTitle}
                     </li>
                     <li className={` breadcrumb-item ${classes.breadcrumb_list_item}`}>
-                        <a href='#'>الصفحة الرئيسية</a>
+                        <a href='/dashboard'>الصفحة الرئيسية</a>
                     </li>
                 </ol>
             </nav>
