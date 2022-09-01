@@ -1,0 +1,44 @@
+.wrapper{
+    justify-content: flex-end
+}
+
+.toolbar_link{
+    color: white;
+    padding: 0px 20px 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    font-weight: 300;
+
+}
+
+.toolbar_link:hover{
+    color: white;
+}
+
+.add_link{
+    background-color: #60D562;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.edit_link{
+    background-color: #FDC002;
+    border-left: 1px solid #eee;
+}
+
+.delete_link{
+    background-color: #F37847;
+}
+
+.excel_link{
+    border: 1px solid rgb(143, 142, 142);
+    background-color: rgb(255, 255, 255);
+}
+
+.nav_icon{
+    width: 30px;
+    height: 30px;
+}
