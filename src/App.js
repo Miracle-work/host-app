@@ -10,11 +10,14 @@ import AuthContext from './Store/Auth-Context'
 import Manufacturing from './Pages/Home/Manufacturing/Manufacturing'
 import Assets from './Pages/Home/Assets/Assets'
 import ProtectedRoutes from './Components/ProtectedRoutes/ProtectedRoutes'
+import useWindowSize from './Hooks/useWindowSize'
 // End of Bootstrap Style
 function App() {
   const authContext=useContext(AuthContext)
   const isLoggedIn=authContext.isLoggedIn
+ 
   return (
+    
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />}/>

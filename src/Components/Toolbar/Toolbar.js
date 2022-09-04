@@ -19,7 +19,7 @@ const Toolbar = () => {
                         <RiDeleteBin5Line className='ms-2'/>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                     <a className={`${classes.toolbar_link} ${classes.edit_link}`} href="#">
                         تعديل
                         <FiEdit className='ms-2'/>
