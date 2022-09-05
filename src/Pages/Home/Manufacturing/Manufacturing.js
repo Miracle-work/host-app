@@ -3,7 +3,8 @@ import NavBar from '../../../Components/NavBar/NavBar';
 import BreadCrumbList from '../../../Components/Breadcrumb/BreadCrumbList';
 import Toolbar from '../../../Components/Toolbar/Toolbar';
 import useAxios from '../../../Hooks/useAxios';
-
+import InsertForm from '../../../Components/InsertForm/InsertForm'
+import DataTable from '../../../Components/DataTable/DataTable';
 const Manufacturing = () => {
     const {data,fetchError,isLoading}=useAxios('https://jsonplaceholder.typicode.com/users')
     return (
@@ -13,7 +14,9 @@ const Manufacturing = () => {
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'} />
                 <Toolbar/>
             </div>
-            <p>{isLoading && 'data is loading'}</p>
+            <InsertForm />
+            <DataTable data={data} fetchError={fetchError} isLoading={isLoading}/>
+            {/* <p>{isLoading && 'data is loading'}</p>
             <ul>
                     {data.map((item)=>{
                         return(
@@ -21,7 +24,7 @@ const Manufacturing = () => {
                         )
                     })
                 }
-            </ul>
+            </ul> */}
         </div>
     );
 };

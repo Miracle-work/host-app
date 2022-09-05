@@ -6,14 +6,14 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import excel from '../../assets/icons/excel.png'
 const Toolbar = () => {
     return (
-        <nav class={`navbar navbar-expand container ${classes.wrapper}`}>
-            <ul class="navbar-nav">
-                <li class="nav-item">
+        <nav className={`navbar navbar-expand container ${classes.wrapper}`}>
+            <ul className="navbar-nav">
+                <li className="nav-item">
                     <a className={`${classes.toolbar_link} ${classes.excel_link}`} href="#">
                         <img src={excel} className={classes.nav_icon}/>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                     <a className={`${classes.toolbar_link} ${classes.delete_link}`} href="#">
                         حذف
                         <RiDeleteBin5Line className='ms-2'/>
@@ -25,7 +25,7 @@ const Toolbar = () => {
                         <FiEdit className='ms-2'/>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                     <a className={`${classes.toolbar_link} ${classes.add_link}`} href="#">
                         جديد
                         <HiPlusSm className='ms-2'/>
