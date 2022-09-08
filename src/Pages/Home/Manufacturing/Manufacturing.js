@@ -5,6 +5,8 @@ import Toolbar from '../../../Components/Toolbar/Toolbar';
 import useAxios from '../../../Hooks/useAxios';
 import InsertForm from '../../../Components/InsertForm/InsertForm'
 import DataTable from '../../../Components/DataTable/DataTable';
+import classes from '../../../Components/DataTable/DataTable.module.scss'
+import { ImArrowDown } from "react-icons/im";
 
 const Manufacturing = () => {
     const {data,fetchError,isLoading}=useAxios('https://jsonplaceholder.typicode.com/users')   
@@ -21,6 +23,11 @@ const Manufacturing = () => {
     const handleClickColumn=()=>{
         setClickColumn(true)
     }
+    const headers=[
+        'الكود',
+         <> الاسم <ImArrowDown className={classes.down_arrow_icon} /></>,
+        'رقم الحساب',
+    ]
     return (
         <div>
             <NavBar /> 
@@ -34,7 +41,7 @@ const Manufacturing = () => {
             }
             {
             (!add || !clickColumn) &&   
-            <DataTable data={data} fetchError={fetchError} isLoading={isLoading} handleClickColumn={handleClickColumn}/>
+            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickColumn={handleClickColumn}/>
             }
         </div>
     );
