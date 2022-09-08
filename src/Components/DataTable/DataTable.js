@@ -5,6 +5,10 @@ import { ImArrowDown } from "react-icons/im";
 const DataTable = ({data,isLoading,fetchError}) => {
     return (
         <div className={classes.table_container}>
+            {/* <div className={classes.searchBar}>
+                <input type="text" />
+                <p>العناصر : {data.length}</p>
+            </div> */}
             <table className={classes.table}>
                 <thead>
                     <tr>

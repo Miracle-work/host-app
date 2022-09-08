@@ -5,11 +5,12 @@ import Toolbar from '../../../Components/Toolbar/Toolbar';
 import useAxios from '../../../Hooks/useAxios';
 import InsertForm from '../../../Components/InsertForm/InsertForm'
 import DataTable from '../../../Components/DataTable/DataTable';
+
 const Manufacturing = () => {
     const {data,fetchError,isLoading}=useAxios('https://jsonplaceholder.typicode.com/users')
     return (
         <div>
-            <NavBar/> 
+            <NavBar /> 
             <div className='d-flex justify-content-between container'>
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'} />
                 <Toolbar/>
