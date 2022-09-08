@@ -6,7 +6,8 @@ import Button from '../Button/Button';
 import { useForm } from 'react-hook-form';
 
 
-const InsertForm = () => {
+const InsertForm = (props) => {
+    const {backHandler}=props 
      // Show Modal
      const [show, setShow] = useState(false);
      const handleClose = () => setShow(false);
@@ -50,7 +51,7 @@ const InsertForm = () => {
                         </button>
                     </div>
                 </div>
-                <Button/>
+                <Button backHandler={backHandler}/>
             </form>
             {/* Modal */}
             <CardModal handleShow={show} handleClose={handleClose}/>

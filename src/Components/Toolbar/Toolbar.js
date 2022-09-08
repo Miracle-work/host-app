@@ -1,35 +1,36 @@
-import React from 'react';
+import {React,useState} from 'react';
 import classes from './Toolbar.module.scss';
 import { HiPlusSm } from "react-icons/hi";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import excel from '../../assets/icons/excel.png'
-const Toolbar = () => {
+const Toolbar = (props) => {
+    const {addHandler,clickColumn}=props
     return (
         <nav className={`navbar navbar-expand container ${classes.wrapper}`}>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className={`${classes.toolbar_link} ${classes.excel_link}`} href="#">
+                    <button className={`${classes.toolbar_link} ${classes.excel_link}`}>
                         <img src={excel} className={classes.nav_icon}/>
-                    </a>
+                    </button>
                 </li>
                 <li className="nav-item">
-                    <a className={`${classes.toolbar_link} ${classes.delete_link}`} href="#">
+                    <button className={`${classes.toolbar_link} ${classes.delete_link} ${clickColumn ? classes.link_shadow : ''}`} disabled={addHandler}>
                         حذف
                         <RiDeleteBin5Line className='ms-2'/>
-                    </a>
+                    </button>
                 </li>
                 <li className="nav-item">
-                    <a className={`${classes.toolbar_link} ${classes.edit_link}`} href="#">
+                    <button className={`${classes.toolbar_link} ${classes.edit_link} ${clickColumn ? classes.link_shadow : ''} `} disabled={addHandler}>
                         تعديل
                         <FiEdit className='ms-2'/>
-                    </a>
+                    </button>
                 </li>
                 <li className="nav-item">
-                    <a className={`${classes.toolbar_link} ${classes.add_link}`} href="#">
+                    <button className={`${classes.toolbar_link} ${classes.add_link} ${!clickColumn ? classes.link_shadow : ''}`} onClick={props.addHandler} disabled={clickColumn}>
                         جديد
                         <HiPlusSm className='ms-2'/>
-                    </a>
+                    </button>
                 </li>
             </ul>
         </nav>

@@ -1,8 +1,8 @@
-import React from 'react';
+import {React,useState} from 'react';
 import classes from './DataTable.module.scss'
 import { ImArrowDown } from "react-icons/im";
 
-const DataTable = ({data,isLoading,fetchError}) => {
+const DataTable = ({data,isLoading,fetchError,handleClickColumn}) => {
     return (
         <div className={classes.table_container}>
             {/* <div className={classes.searchBar}>
@@ -20,7 +20,7 @@ const DataTable = ({data,isLoading,fetchError}) => {
                 <tbody>
                     {data.map((item)=>{
                         return(
-                            <tr key={item.id}>
+                            <tr key={item.id} onClick={handleClickColumn}>
                                 <td>{item.name}</td>
                                 <td>{item.name}</td>
                                 <td>{item.name}</td>
