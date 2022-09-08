@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './DataTable.module.scss'
+import { ImArrowDown } from "react-icons/im";
+
 const DataTable = ({data,isLoading,fetchError}) => {
     return (
         <div className={classes.table_container}>
@@ -7,7 +9,7 @@ const DataTable = ({data,isLoading,fetchError}) => {
                 <thead>
                     <tr>
                         <th>الكود</th>
-                        <th>الاسم</th>
+                        <th>الاسم <ImArrowDown className={classes.down_arrow_icon} /></th>
                         <th>رقم الحساب</th>
                     </tr>
                 </thead>

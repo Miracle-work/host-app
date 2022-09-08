@@ -7,9 +7,9 @@ const Button = () => {
     return (
         
         <div className={`${classes.btn_center}`}>
-            <a href='#' className={`${classes.btn} ${classes.btn_blue}`}>
+            <button type='submit' className={`border-0 ${classes.btn} ${classes.btn_blue}`}>
                 <FiSave className={`${classes.btn_icon}`}/> حفظ 
-            </a>
+            </button>
             <a href='#' className={`${classes.btn} ${classes.btn_light}`}>
                 <TiArrowBack className={`${classes.btn_icon}`}/> تراجع
             </a>

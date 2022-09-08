@@ -3,6 +3,8 @@ import classes from './InsertForm.module.scss'
 import { AiOutlineSearch } from "react-icons/ai";
 import CardModal from '../Modal/CardModal';
 import Button from '../Button/Button';
+import { useForm } from 'react-hook-form';
+
 
 const InsertForm = () => {
      // Show Modal
@@ -10,22 +12,27 @@ const InsertForm = () => {
      const handleClose = () => setShow(false);
      const handleShow = () => setShow(true);
      // End show modal
+
+     const {register,handleSubmit, formState: { errors }}=useForm();
+     const onSubmit=(data)=>{
+        console.log(data)
+     }
     return (
         <div>
-            <form method='' action='' dir="rtl">
+            <form  dir="rtl" onSubmit={handleSubmit(onSubmit)}>
                 <div className={`${classes.container}`}>
                     <div className={`${classes.flex_container}`}>
                         <div className={`${classes.label}`}>
                             <label htmlFor='code' className=''>الكود </label>
                         </div>
                         <div className={`${classes.form_input}`}>
-                            <input type="text" id="code" className='form-control' />
+                            <input type="text" id="code" className={`form-control ${errors.code && classes.error}`}  {...register("code",{ required: true })}/>
                         </div>
                         <div className={`${classes.label}`}>
                             <label htmlFor='name' className=''>الاسم </label>
                         </div>
                         <div className={`${classes.form_input}`}>
-                            <input type="text" id='name' className='form-control' />
+                            <input type="text" id='name' className={`form-control ${errors.name && classes.error}`} {...register("name",{ required: true })} />
                         </div>
                     </div>
                     <div className={`${classes.flex_container}`}>
@@ -33,10 +40,10 @@ const InsertForm = () => {
                             <label htmlFor='product' className=''>رقم الحساب</label>
                         </div>
                         <div className={`${classes.form_input_first}`}>
-                            <input type="text" id="product" className='form-control' />
+                            <input type="text" id="product" className={`form-control ${errors.serial && classes.error}`} {...register("serial",{ required: true })} />
                         </div>
                         <div className={`${classes.form_input_second}`}>
-                            <input type="text" className='form-control' />
+                            <input type="text" className='form-control'/>
                         </div>
                         <button type='button' className={`${classes.form_search_icon}`} onClick={handleShow}>
                             <AiOutlineSearch className={`${classes.icon}`}/>

@@ -50,6 +50,10 @@
     padding: 0px 8px;
   }
 
+.error{
+  border: 1px solid red;
+}
+
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .flex_container .form_label {

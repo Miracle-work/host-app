@@ -16,15 +16,6 @@ const Manufacturing = () => {
             </div>
             <InsertForm />
             <DataTable data={data} fetchError={fetchError} isLoading={isLoading}/>
-            {/* <p>{isLoading && 'data is loading'}</p>
-            <ul>
-                    {data.map((item)=>{
-                        return(
-                            <li>{item.name}</li>
-                        )
-                    })
-                }
-            </ul> */}
         </div>
     );
 };
