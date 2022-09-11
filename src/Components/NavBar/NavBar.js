@@ -8,31 +8,37 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { AiTwotoneBank } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 // End Of Bootstrap Components
 import classes from './NavBar.module.scss';
 
 const NavBar = () => {
-    const [dropdown,setDropdown]= useState([
+    const menu=[
         {
-       id: 1
-        ,
-        isOpened:false
-     },
-     {
-        id: 2
-         ,
-         isOpened:false
-      },
-   ])
-
-    const arrowHandler=(id)=>{
-       let element = dropdown.find(c=> c.id == id);
-       element.isOpened = !element.isOpened;
-       setDropdown([...dropdown]);
-    };
+            id:1,
+            itemName:'التصنيع',
+            url:'',
+            dropdown:true,
+            dropdownList:[
+                {
+                    name:'الرئيسية',
+                    link:'/dashboard/manufacturing'
+                }
+            ]
+        },{
+            id:2,
+            itemName:'الاصول',
+            url:'',
+            dropdown:true,
+            dropdownList:[
+                {
+                    name:'الرئيسية',
+                    link:'/dashboard/assets'
+                }
+            ]
+        }
+    ]
 
     return (
 
@@ -46,36 +52,35 @@ const NavBar = () => {
 
                 <Navbar.Collapse className={`justify-content-start ${classes.navbar_link}`}>
                     <Nav>
-                        <NavDropdown className={`${classes.dropdown}`} title={
-                            <span className={`${classes.navbar_link}`}>
-                                <AiOutlineSetting className={`${classes.nav_icon}`} /> 
-                                التصنيع
-                                {
-                                    dropdown[0].isOpened  ? <IoIosArrowDown className={`${classes.nav_icon_down}`} /> : <IoIosArrowUp className={`${classes.nav_icon_down}`} /> 
-                                }
-                            </span>
-                        } onClick={() =>arrowHandler(1)}>
-                            <NavDropdown.Item href="/dashboard/manufacturing">
-                                الرئيسية
-                            </NavDropdown.Item>
-                        </NavDropdown>
-
-                        <NavDropdown className={`${classes.dropdown}`} title={
-                            <span className={`${classes.navbar_link}`}> 
-                                <AiTwotoneBank className={`${classes.nav_icon}`} />
-                                الاصول
-                                {
-                                    dropdown[1].isOpened  ? 
-                                    <IoIosArrowDown className={`${classes.nav_icon_down}`} /> : 
-                                    <IoIosArrowUp className={`${classes.nav_icon_down}`} /> 
-                                } 
-                            </span>
-                        } onClick={() => arrowHandler(2)}>
-                            <NavDropdown.Item href="/dashboard/assets">
-                            الرئيسية   
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                        
+                        {
+                            menu.map((item)=>{
+                                return(
+                                    item.dropdown ? 
+                                        <NavDropdown key={item.id} className={`${classes.dropdown}`} title={
+                                            <span className={`${classes.navbar_link}`}>
+                                                <AiOutlineSetting className={`${classes.nav_icon}`} /> 
+                                                {item.itemName}
+                                                {
+                                                    <IoIosArrowDown className={`${classes.nav_icon_down}`} />
+                                                }
+                                            </span>
+                                        }>
+                                            { 
+                                                item.dropdownList.map((list)=>{
+                                                    return(
+                                                        <NavDropdown.Item key={item.id} href={list.link}>
+                                                            {list.name}
+                                                        </NavDropdown.Item>
+                                                    )
+                                                })
+                                            }    
+                                        </NavDropdown> :
+                                        <Nav.Link  href={item.url} className={` ${classes.navbar_link} ${classes.dropdown}`}>
+                                            {item.itemName} 
+                                        </Nav.Link>
+                                )    
+                            })
+                        }
                     </Nav>
                 </Navbar.Collapse>
                 
