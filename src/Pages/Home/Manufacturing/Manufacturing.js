@@ -20,7 +20,7 @@ const Manufacturing = () => {
         setAdd(false)
         setClickColumn(false)
     } 
-    const handleClickColumn=()=>{
+    const handleClickRow=()=>{
         setClickColumn(true)
     }
     const headers=[
@@ -41,7 +41,7 @@ const Manufacturing = () => {
             }
             {
             (!add || !clickColumn) &&   
-            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickColumn={handleClickColumn}/>
+            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickColumn={handleClickRow}/>
             }
         </div>
     );
