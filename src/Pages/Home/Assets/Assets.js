@@ -6,7 +6,6 @@ import Toolbar from '../../../Components/Toolbar/Toolbar'
 const Assets = () => {
     return (
         <div>
-            <NavBar/> 
             <div className='d-flex justify-content-between container'>
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'}/>
                 <Toolbar/>

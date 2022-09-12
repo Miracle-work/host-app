@@ -1,4 +1,4 @@
-import {React,useState} from 'react';
+import {React,useContext} from 'react';
 // Bootstrap Components
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,11 +9,20 @@ import { AiTwotoneBank } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
+import AuthContext from '../../Store/Auth-Context'
+// import {useNavigate} from 'react-router-dom';
 
 // End Of Bootstrap Components
 import classes from './NavBar.module.scss';
 
 const NavBar = () => {
+    const authContext= useContext(AuthContext)
+    // const navigate=useNavigate()
+    const logout=()=>{
+        authContext.logout()
+        // navigate('/login')
+        console.log('logged out')
+    }
     const menu=[
         {
             id:1,
@@ -85,9 +94,13 @@ const NavBar = () => {
                 </Navbar.Collapse>
                 
                 <Navbar.Collapse className={`justify-content-end ${classes.navbar_link}`}>
-                    <Navbar  href="" className={` ${classes.navbar_link} ${classes.dropdown}`}>
-                        <FaUserCircle className={`${classes.nav_icon} ${classes.nav_icon_user}`} />  اسم المستخدم 
-                    </Navbar>
+                    <NavDropdown className={`${classes.dropdown}`} title={
+                        <span className={`${classes.navbar_link}`}>
+                            <FaUserCircle className={`${classes.nav_icon} ${classes.nav_icon_user}`} />  اسم المستخدم 
+                        </span>
+                    }>
+                        <NavDropdown.Item href="#" onClick={logout}>Logout</NavDropdown.Item>         
+                    </NavDropdown>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

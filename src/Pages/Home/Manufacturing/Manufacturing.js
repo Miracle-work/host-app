@@ -30,7 +30,6 @@ const Manufacturing = () => {
     ]
     return (
         <div>
-            <NavBar /> 
             <div className='d-flex justify-content-between container'>
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'} />
                 <Toolbar addHandler={onAddHandler} clickColumn={clickColumn}/>
