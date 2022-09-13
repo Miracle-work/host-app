@@ -32,7 +32,7 @@ const Manufacturing = () => {
         <div>
             <div className='d-flex justify-content-between container'>
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'} />
-                <Toolbar addHandler={onAddHandler} clickColumn={clickColumn}/>
+                <Toolbar addHandler={onAddHandler} addNew={add} clickColumn={clickColumn}/>
             </div>
             {
              (add || clickColumn) && 
@@ -40,7 +40,7 @@ const Manufacturing = () => {
             }
             {
             (!add || !clickColumn) &&   
-            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickColumn={handleClickRow}/>
+            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickRow={handleClickRow}/>
             }
         </div>
     );

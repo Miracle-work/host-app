@@ -2,7 +2,7 @@ import {React,useState} from 'react';
 import classes from './DataTable.module.scss'
 
 const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
-    const [record, setRecord]=useState({})
+
     return (
         <div className={classes.table_container}>
             {/* <div className={classes.searchBar}>

@@ -20,7 +20,7 @@ function App() {
  
   return (
     <>
-    <NavBar/> 
+    {isLoggedIn && <NavBar/>} 
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />}/>
