@@ -5,10 +5,17 @@ const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
 
     return (
         <div className={classes.table_container}>
-            {/* <div className={classes.searchBar}>
-                <input type="text" />
-                <p>العناصر : {data.length}</p>
-            </div> */}
+            <div className={classes.searchBar}>
+                <div className={`mt-2 ${classes.containerFlex}`}>
+                    <div className={`me-2 ${classes.searchInput}`}>
+                        <input type="text" placeholder='البحث عن'/>
+                    </div>
+                    <div className={`ms-4 mt-1 text-white ${classes.itemsCounter}`}>
+                        <p>العناصر : {data.length}</p>
+                    </div>
+                    <div className={classes.clear}></div>
+                </div>
+            </div>
             <table className={classes.table}>
                 <thead>
                     <tr>

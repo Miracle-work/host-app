@@ -1,12 +1,9 @@
 .table_container{
-    margin-top: 40px;
+    margin-top: 60px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    // position: absolute;
-    // top: 75%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
+    position: relative;
     border: 1px solid #000;
     width: 97%;
 }
@@ -23,6 +20,7 @@
     border-left: 1px solid rgb(221, 220, 220);
     padding: 5px;
     color: rgb(11, 6, 90);
+    padding-top: 30px;
 }
 
 .table td{
@@ -46,8 +44,37 @@
     background: rgb(5,14,23);
     background: radial-gradient(circle at center,#3a71e0 0,#2b3fb4,#273baf 100%);
     height: 50px;
-    width: 90%;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
+    top: -25px;
+    left: 20px;
+}
+.searchInput{
+    direction: rtl;
+    float:right;
+}
+
+.searchInput input{
+    background-color: #2b3fb4;
+    color: white;
+    border-style:none none solid none ;
+    border-color: #eee;
+}
+
+.searchInput input:focus{
+    outline: none;
+}
+
+.searchInput input::placeholder{
+    color: #eee;
+}
+
+.itemsCounter{
+    float:left;
+}
+
+.clear{
+    clear: both;
 }
