@@ -40,6 +40,7 @@ const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
                 }   
                 </tbody>
             </table>
+            <div className={classes.tableFooter}></div>
         </div>
     );
 };
