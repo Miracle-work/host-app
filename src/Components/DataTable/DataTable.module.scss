@@ -56,6 +56,8 @@
 .searchInput{
     direction: rtl;
     float:right;
+    position: relative;
+
 }
 
 .searchInput input{
@@ -79,4 +81,16 @@
 
 .clear{
     clear: both;
+}
+
+.icon {
+    height: 1.8rem;
+    width: 1.8rem;
+    color: #eee;
+    padding: 4px;
+    position: absolute;
+    box-sizing:border-box;
+    top:50%;
+    left:0px;
+    transform: translateY(-50%);
 }

@@ -1,5 +1,6 @@
 import {React,useState} from 'react';
 import classes from './DataTable.module.scss'
+import { AiOutlineSearch } from "react-icons/ai";
 
 const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
 
@@ -8,6 +9,7 @@ const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
             <div className={classes.searchBar}>
                 <div className={`mt-2 ${classes.containerFlex}`}>
                     <div className={`me-2 ${classes.searchInput}`}>
+                        <AiOutlineSearch className={classes.icon}/>
                         <input type="text" placeholder='البحث عن'/>
                     </div>
                     <div className={`ms-4 mt-1 text-white ${classes.itemsCounter}`}>
