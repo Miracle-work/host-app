@@ -28,6 +28,7 @@ const NavBar = () => {
             id:1,
             itemName:'التصنيع',
             url:'',
+            icon:<AiOutlineSetting className={`${classes.nav_icon}`} /> ,
             dropdown:true,
             dropdownList:[
                 {
@@ -40,6 +41,7 @@ const NavBar = () => {
             itemName:'الاصول',
             url:'',
             dropdown:true,
+            icon:<AiTwotoneBank className={`${classes.nav_icon}`} /> ,
             dropdownList:[
                 {
                     name:'الرئيسية',
@@ -67,7 +69,7 @@ const NavBar = () => {
                                     item.dropdown ? 
                                         <NavDropdown key={item.id} className={`${classes.dropdown}`} title={
                                             <span className={`${classes.navbar_link}`}>
-                                                <AiOutlineSetting className={`${classes.nav_icon}`} /> 
+                                                {item.icon}
                                                 {item.itemName}
                                                 {
                                                     <IoIosArrowDown className={`${classes.nav_icon_down}`} />
