@@ -5,7 +5,7 @@ import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import excel from '../../assets/icons/excel.png'
 const Toolbar = (props) => {
-    const {addHandler,clickColumn,addNew}=props
+    const {addHandler,clickColumn,addNew,editHandler}=props;
     return (
         <nav className={`navbar navbar-expand container ${classes.wrapper}`}>
             <ul className="navbar-nav">
@@ -15,13 +15,14 @@ const Toolbar = (props) => {
                     </button>
                 </li>
                 <li className="nav-item">
-                    <button className={`${classes.toolbar_link} ${classes.delete_link} ${clickColumn ? classes.link_shadow : ''}`} disabled={addNew}>
+                    <button className={`${classes.toolbar_link} ${classes.delete_link} ${clickColumn.clicked ? classes.link_shadow : ''}`} disabled={addNew}>
                         حذف
                         <RiDeleteBin5Line className='ms-2'/>
                     </button>
                 </li>
                 <li className="nav-item">
-                    <button className={`${classes.toolbar_link} ${classes.edit_link} ${clickColumn ? classes.link_shadow : ''} `} disabled={addNew}>
+                    <button className={`${classes.toolbar_link} ${classes.edit_link} ${clickColumn.clicked ? classes.link_shadow : ''} `}
+                     onClick={()=>editHandler(clickColumn.data)}  disabled={addNew}>
                         تعديل
                         <FiEdit className='ms-2'/>
                     </button>

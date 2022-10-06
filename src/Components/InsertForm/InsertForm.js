@@ -27,13 +27,15 @@ const InsertForm = (props) => {
                             <label htmlFor='code' className=''>الكود </label>
                         </div>
                         <div className={`${classes.form_input}`}>
-                            <input type="text" id="code" className={`form-control ${errors.code && classes.error}`}  {...register("code",{ required: true })}/>
+                            <input type="text" id="code" className={`form-control ${errors.code && classes.error}`}  
+                            {...register("code",{ required: true })}/>
                         </div>
                         <div className={`${classes.label}`}>
                             <label htmlFor='name' className=''>الاسم </label>
                         </div>
                         <div className={`${classes.form_input}`}>
-                            <input type="text" id='name' className={`form-control ${errors.name && classes.error}`} {...register("name",{ required: true })} />
+                            <input type="text" id='name' className={`form-control ${errors.name && classes.error}`} 
+                            {...register("name",{ required: true })} />
                         </div>
                     </div>
                     <div className={`${classes.flex_container}`}>
@@ -41,7 +43,8 @@ const InsertForm = (props) => {
                             <label htmlFor='product' className=''>رقم الحساب</label>
                         </div>
                         <div className={`${classes.form_input_first}`}>
-                            <input type="text" id="product" className={`form-control ${errors.serial && classes.error}`} {...register("serial",{ required: true })} />
+                            <input type="text" id="product" className={`form-control ${errors.serial && classes.error}`} 
+                            {...register("serial",{ required: true })} />
                         </div>
                         <div className={`${classes.form_input_second}`}>
                             <input type="text" className='form-control'/>

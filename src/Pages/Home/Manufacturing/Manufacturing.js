@@ -11,8 +11,8 @@ import { ImArrowDown } from "react-icons/im";
 const Manufacturing = () => {
     const {data,fetchError,isLoading}=useAxios('https://jsonplaceholder.typicode.com/users')   
     const [add,setAdd]=useState(false)
-    const [clickColumn, setClickColumn]=useState(false)
-
+    const [clickColumn, setClickColumn]=useState([])
+    const [selectedRow,setSelectedRow]=useState([])
     const onAddHandler=()=>{
         setAdd(true)
     } 
@@ -20,9 +20,31 @@ const Manufacturing = () => {
         setAdd(false)
         setClickColumn(false)
     } 
-    const handleClickRow=()=>{
-        setClickColumn(true)
+    const handleClickRow=(data)=>{
+        setSelectedRow(
+            {
+                'id':data.id,
+                'name':data.name,
+                'email':data.email,
+                'city':data.address.city,
+            }
+        )
+        setClickColumn({
+            clicked:true,
+            data: {
+                'id':data.id,
+                'name':data.name,
+                'email':data.email,
+                'city':data.address.city,
+            }
+        })
     }
+
+    const editHandler=(data)=>{
+        console.log(data)
+        setAdd(true)
+    }
+
     const headers=[
         'الكود',
          <> الاسم <ImArrowDown className={classes.down_arrow_icon} /></>,
@@ -32,15 +54,18 @@ const Manufacturing = () => {
         <div>
             <div className='d-flex justify-content-between container'>
                 <BreadCrumbList breadCrumbTitle={'المجموعات الاساسية للتصنيع'} />
-                <Toolbar addHandler={onAddHandler} addNew={add} clickColumn={clickColumn}/>
+                <Toolbar editHandler={editHandler} addHandler={onAddHandler} addNew={add} clickColumn={clickColumn} selectedRowData={selectedRow}/>
             </div>
             {
-             (add || clickColumn) && 
+             add  && 
             <InsertForm backHandler={backHandler}/>
             }
             {
             (!add || !clickColumn) &&   
-            <DataTable data={data} headers={headers} fetchError={fetchError} isLoading={isLoading} handleClickRow={handleClickRow}/>
+            <DataTable 
+             selectedRow={selectedRow} 
+             data={data} headers={headers}
+             fetchError={fetchError} isLoading={isLoading} handleClickRow={handleClickRow}/>
             }
         </div>
     );

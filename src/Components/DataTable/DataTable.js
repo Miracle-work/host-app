@@ -2,8 +2,7 @@ import {React,useState} from 'react';
 import classes from './DataTable.module.scss'
 import { AiOutlineSearch } from "react-icons/ai";
 
-const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
-
+const DataTable = ({data,isLoading,fetchError,handleClickRow,headers,selectedRow}) => {
     return (
         <div className={classes.table_container}>
             <div className={classes.searchBar}>
@@ -23,23 +22,28 @@ const DataTable = ({data,isLoading,fetchError,handleClickRow,headers}) => {
                     <tr>
                     {headers.map((header)=>{
                         return(
-                                <th>{header}</th>
+                                <th key={header}>{header}</th>
                             )
                         })
-                    }           
+                    }
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item)=>{
+                    {!isLoading && data.map((item)=>{
                         return(
-                            <tr key={item.id} onClick={handleClickRow}>
+                           
+                            <tr key={item.id} onClick={() => handleClickRow(item)} className={selectedRow.id == item.id ?`${classes.selected}`: ''}>
                                 <td>{item.name}</td>
-                                <td>{item.name}</td>
-                                <td>{item.name}</td>
+                                <td>{item.email}</td>
+                                <td>{item.address.city}</td>
                             </tr>
                         )
                     })
-                }   
+                    }  
+                    {isLoading && 
+                    <tr >
+                        <td colSpan="4">Loading data...</td>
+                    </tr>}          
                 </tbody>
             </table>
             <div className={classes.tableFooter}>

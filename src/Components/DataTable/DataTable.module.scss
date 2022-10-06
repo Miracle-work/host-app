@@ -27,6 +27,7 @@
         
         & td{
             border-left: 1px solid rgb(221, 220, 220);
+            padding: 10px 0;
 
             &:nth-child(3) {
                 border:none;
@@ -125,6 +126,12 @@
     & select:focus{
         outline: none;
     }
+}
 
+.selected{
+    background: radial-gradient(circle at center,#3a71e0 0,#2b3fb4,#273baf 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #eee;
+    font-weight: bold;
 }
 

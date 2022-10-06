@@ -5,7 +5,7 @@ const useAxios = (dataUrl) => {
     const [isLoading, setIsLoading]=useState(false)
     const [fetchError, setFetchError]=useState(null)
     useEffect(()=>{
-        let isMounted=true
+        let isMounted=true;
         const source=axios.CancelToken.source();
         
             const fetchData= async (url) =>{
@@ -14,11 +14,9 @@ const useAxios = (dataUrl) => {
                     const response=await axios.get(url,{
                         cancelToken:source.token
                     })
-                    if(isMounted){
                         setData(response.data)
                         setFetchError(null)
                         setIsLoading(false)
-                    }
                 }catch(error) {
                     if(isMounted){
                         setFetchError(error.message)
@@ -28,13 +26,6 @@ const useAxios = (dataUrl) => {
             }
 
             fetchData(dataUrl)
-
-            const cleanUp=()=>{
-                isMounted=false
-                source.cancel()
-            }
-
-            return cleanUp
 
         },[dataUrl])
     return (
