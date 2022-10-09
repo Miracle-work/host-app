@@ -11,6 +11,7 @@ import { ImArrowDown } from "react-icons/im";
 const Manufacturing = () => {
     const {data,fetchError,isLoading}=useAxios('https://jsonplaceholder.typicode.com/users')   
     const [add,setAdd]=useState(false)
+    const [formData,setFormData]=useState([])
     const [clickColumn, setClickColumn]=useState([])
     const [selectedRow,setSelectedRow]=useState([])
     const onAddHandler=()=>{
@@ -41,7 +42,7 @@ const Manufacturing = () => {
     }
 
     const editHandler=(data)=>{
-        console.log(data)
+        setFormData(data)
         setAdd(true)
     }
 
@@ -58,7 +59,7 @@ const Manufacturing = () => {
             </div>
             {
              add  && 
-            <InsertForm backHandler={backHandler}/>
+            <InsertForm backHandler={backHandler} returnedRowData={formData}/>
             }
             {
             (!add || !clickColumn) &&   
