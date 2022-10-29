@@ -27,7 +27,7 @@ const Manufacturing = () => {
                 'id':data.id,
                 'name':data.name,
                 'email':data.email,
-                'city':data.address.city,
+                'phone':data.phone,
             }
         )
         setClickColumn({
@@ -36,7 +36,7 @@ const Manufacturing = () => {
                 'id':data.id,
                 'name':data.name,
                 'email':data.email,
-                'city':data.address.city,
+                'phone':data.phone,
             }
         })
     }

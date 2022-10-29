@@ -33,9 +33,9 @@ const DataTable = ({data,isLoading,fetchError,handleClickRow,headers,selectedRow
                         return(
                            
                             <tr key={item.id} onClick={() => handleClickRow(item)} className={selectedRow.id == item.id ?`${classes.selected}`: ''}>
+                                <td>{item.id}</td>
                                 <td>{item.name}</td>
-                                <td>{item.email}</td>
-                                <td>{item.address.city}</td>
+                                <td>{item.phone}</td>
                             </tr>
                         )
                     })

@@ -43,7 +43,7 @@ const InsertForm = (props) => {
                         </div>
                         <div className={`${classes.form_input_first}`}>
                             <input type="text" id="product" className={`form-control ${errors.serial && classes.error}`} 
-                            {...register("serial",{ required: true ,value:returnedRowData.id})} />
+                            {...register("serial",{ required: true ,value:returnedRowData.phone})} />
                         </div>
                         <div className={`${classes.form_input_second}`}>
                             <input type="text" className='form-control'/>
